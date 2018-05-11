@@ -2,19 +2,6 @@
  * Font Awesome Pro 5.0.0 by @fontawesome - http://fontawesome.com
  * License - http://fontawesome.com/license (Commercial License)
  */
-.fa,
-.fas,
-.far,
-.fal,
-.fab {
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  display: inline-block;
-  font-style: normal;
-  font-variant: normal;
-  text-rendering: auto;
-  line-height: 1; }
-
 .fa-lg {
   font-size: 1.3333333333em;
   line-height: 0.75em;
@@ -55,10 +42,6 @@
 
 .fa-10x {
   font-size: 10em; }
-
-.fa-fw {
-  text-align: center;
-  width: 1.25em; }
 
 .fa-ul {
   list-style-type: none;
@@ -3039,21 +3022,6 @@ readers do not read off random characters that represent icons */
   font-family: 'Font Awesome 5 Pro';
   font-weight: 400; }
 
-/*!
- * Font Awesome Pro 5.0.0 by @fontawesome - http://fontawesome.com
- * License - http://fontawesome.com/license (Commercial License)
- */
-@font-face {
-  font-family: 'Font Awesome 5 Pro';
-  font-style: normal;
-  font-weight: 900;
-  src: url("./fonts/fa-solid-900.eot");
-  src: url("./fonts/fa-solid-900.eot?#iefix") format("embedded-opentype"), url("./fonts/fa-solid-900.woff2") format("woff2"), url("./fonts/fa-solid-900.woff") format("woff"), url("./fonts/fa-solid-900.ttf") format("truetype"), url("./fonts/fa-solid-900.svg#fontawesome") format("svg"); }
-.fa,
-.fas {
-  font-family: 'Font Awesome 5 Pro';
-  font-weight: 900; }
-
 /* font */
 @font-face {
   font-family: 'AmaticSC-Bold';
@@ -3109,13 +3077,16 @@ readers do not read off random characters that represent icons */
     opacity: 0; } }
 @keyframes fadein {
   0% {
-    opacity: 0; }
+    opacity: 0;
+    top: 0; }
   100% {
-    opacity: 1; } }
+    opacity: 1;
+    top: 25%; } }
 html, body {
   margin: 0;
   padding: 0;
-  font-family: "Roboto-Regular", sans-serif; }
+  font-family: "Roboto-Regular", sans-serif;
+  overflow: hidden; }
 
 .inner {
   width: 100%;
@@ -3125,7 +3096,10 @@ html, body {
     height: 50px;
     background-color: #fff;
     color: #333;
-    box-shadow: 1px 1px 2px #999; }
+    box-shadow: 1px 1px 2px #999;
+    display: none;
+    position: fixed;
+    z-index: 999; }
     .inner .header .header_inner {
       text-align: center; }
       .inner .header .header_inner ul:not(.lang_down) {
@@ -3201,5 +3175,78 @@ html, body {
             -moz-transition: background-color 0.3s linear;
             -o-transition: background-color 0.3s linear;
             transition: background-color 0.3s linear; }
+  .inner .container .container_main {
+    color: #fff;
+    text-align: center;
+    height: 100vh; }
+    .inner .container .container_main .container_main_bg {
+      background: url("../images/background_img.jpg") no-repeat;
+      background-size: cover;
+      z-index: -1;
+      position: absolute;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden; }
+      .inner .container .container_main .container_main_bg .container_main_star {
+        background: url("../images/start.png") no-repeat;
+        background-size: cover;
+        width: 100%;
+        height: 100vh;
+        position: absolute; }
+      .inner .container .container_main .container_main_bg .container_main_tree {
+        background: url("../images/right_side.png") no-repeat;
+        background-size: cover;
+        width: 100%;
+        height: 100vh;
+        position: absolute; }
+    .inner .container .container_main .main_txt {
+      position: relative;
+      top: 30%; }
+      .inner .container .container_main .main_txt p {
+        cursor: default; }
+      .inner .container .container_main .main_txt p#name {
+        font-size: 4rem;
+        line-height: 4rem;
+        margin: 0; }
+      .inner .container .container_main .main_txt p#occupation {
+        font-size: 1.3rem;
+        line-height: 1.5rem;
+        margin: 30px auto 60px;
+        border-top: 1px solid #fff;
+        width: 15rem; }
+      .inner .container .container_main .main_txt .down_btn {
+        position: relative;
+        height: 6vh;
+        cursor: pointer; }
+        .inner .container .container_main .main_txt .down_btn i {
+          font-style: normal;
+          font-size: 1.3rem;
+          position: relative;
+          -webkit-animation-delay: 0s;
+          -webkit-animation-duration: 2.5s;
+          -webkit-animation-name: fadein;
+          -webkit-animation-fill-mode: forwards;
+          /* this prevents the animation from restarting! */
+          -webkit-animation-iteration-count: infinite;
+          -moz-animation-delay: 0s;
+          -moz-animation-duration: 2.5s;
+          -moz-animation-name: fadein;
+          -moz-animation-fill-mode: forwards;
+          /* this prevents the animation from restarting! */
+          -moz-animation-iteration-count: infinite;
+          -o-animation-delay: 0s;
+          -o-animation-duration: 2.5s;
+          -o-animation-name: fadein;
+          -o-animation-fill-mode: forwards;
+          /* this prevents the animation from restarting! */
+          -o-animation-iteration-count: infinite;
+          animation-delay: 0s;
+          animation-duration: 2.5s;
+          animation-name: fadein;
+          animation-fill-mode: forwards;
+          /* this prevents the animation from restarting! */
+          animation-iteration-count: infinite; }
+  .inner .container .container_about {
+    height: 100vh; }
 
 /*# sourceMappingURL=main.css.map */

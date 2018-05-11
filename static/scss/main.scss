@@ -1,0 +1,359 @@
+@charset "UTF-8";
+
+@import "font_awesome/fontawesome.scss";
+@import "font_awesome/fa-brands.scss";
+@import "font_awesome/fa-light.scss";
+@import "font_awesome/fa-regular.scss";
+@import "font_awesome/fa-solid.scss";
+
+/* font */
+@font-face {
+  font-family: 'AmaticSC-Bold';
+  font-style: normal;
+  font-weight: 400;
+  src: local('AmaticSC-Bold'),
+  url('../fonts/AmaticSC-Bold.woff') format('woff'),
+  url('../fonts/AmaticSC-Bold.ttf') format('truetype'),
+  url('../fonts/AmaticSC-Bold.eot') format('embedded-opentype');
+}
+@font-face {
+  font-family: 'AmaticSC-Regular';
+  font-style: normal;
+  font-weight: 400;
+  src: local('AmaticSC-Regular'),
+  url('../fonts/AmaticSC-Regular.woff') format('woff'),
+  url('../fonts/AmaticSC-Regular.ttf') format('truetype'),
+  url('../fonts/AmaticSC-Regular.eot') format('embedded-opentype');
+}
+@font-face {
+  font-family: 'Nanum_SquareR';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Nanum_SquareR'),
+  url('../fonts/Nanum_SquareR.woff') format('woff'),
+  url('../fonts/Nanum_SquareR.ttf') format('truetype'),
+  url('../fonts/Nanum_SquareR.eot') format('embedded-opentype');
+}
+@font-face {
+  font-family: 'NanumGothic-Bold';
+  font-style: normal;
+  font-weight: 400;
+  src: local('NanumGothic-Bold'),
+  url('../fonts/NanumGothic-Bold.woff') format('woff'),
+  url('../fonts/NanumGothic-Bold.ttf') format('truetype'),
+  url('../fonts/NanumGothic-Bold.eot') format('embedded-opentype');
+}
+@font-face {
+  font-family: 'NanumGothic-Regular';
+  font-style: normal;
+  font-weight: 400;
+  src: local('NanumGothic-Regular'),
+  url('../fonts/NanumGothic-Regular.woff') format('woff'),
+  url('../fonts/NanumGothic-Regular.ttf') format('truetype'),
+  url('../fonts/NanumGothic-Regular.eot') format('embedded-opentype');
+}
+@font-face {
+  font-family: 'Roboto-Regular';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto-Regular'),
+  url('../fonts/Roboto-Regular.woff') format('woff'),
+  url('../fonts/Roboto-Regular.ttf') format('truetype'),
+  url('../fonts/Roboto-Regular.eot') format('embedded-opentype');
+}
+@font-face {
+  font-family: 'Roboto-Bold';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto-Bold'),
+  url('../fonts/Roboto-Bold.woff') format('woff'),
+  url('../fonts/Roboto-Bold.ttf') format('truetype'),
+  url('../fonts/Roboto-Bold.eot') format('embedded-opentype');
+}
+@font-face {
+  font-family: 'Roboto-Light';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto-Light'),
+  url('../fonts/Roboto-Light.woff') format('woff'),
+  url('../fonts/Roboto-Light.ttf') format('truetype'),
+  url('../fonts/Roboto-Light.eot') format('embedded-opentype');
+}
+@font-face {
+  font-family: 'Roboto-Medium';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto-Medium'),
+  url('../fonts/Roboto-Medium.woff') format('woff'),
+  url('../fonts/Roboto-Medium.ttf') format('truetype'),
+  url('../fonts/Roboto-Medium.eot') format('embedded-opentype');
+}
+
+/* responsive */
+$break-small : 460px;
+$break-large: 1200px;
+
+/* animation */
+@keyframes fadeout {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes fadein {
+  0% {
+    opacity: 0;
+    top: 0;
+  }
+
+  100% {
+    opacity: 1;
+    top: 25%;
+  }
+}
+
+@mixin keyframe ($animation_name) {
+  @-webkit-keyframes #{$animation_name} {
+    @content;
+  }
+
+  @-moz-keyframes #{$animation_name} {
+    @content;
+  }
+
+  @-o-keyframes #{$animation_name} {
+    @content;
+  }
+
+  @keyframes #{$animation_name} {
+    @content;
+  }
+}
+
+@mixin animation ($delay, $duration, $animation, $inf) {
+  -webkit-animation-delay: $delay;
+  -webkit-animation-duration: $duration;
+  -webkit-animation-name: $animation;
+  -webkit-animation-fill-mode: forwards; /* this prevents the animation from restarting! */
+  -webkit-animation-iteration-count: $inf;
+
+  -moz-animation-delay: $delay;
+  -moz-animation-duration: $duration;
+  -moz-animation-name: $animation;
+  -moz-animation-fill-mode: forwards; /* this prevents the animation from restarting! */
+  -moz-animation-iteration-count: $inf;
+
+  -o-animation-delay: $delay;
+  -o-animation-duration: $duration;
+  -o-animation-name: $animation;
+  -o-animation-fill-mode: forwards; /* this prevents the animation from restarting! */
+  -o-animation-iteration-count: $inf;
+
+  animation-delay: $delay;
+  animation-duration: $duration;
+  animation-name: $animation;
+  animation-fill-mode: forwards; /* this prevents the animation from restarting! */
+  animation-iteration-count: $inf;
+}
+
+@mixin shift($property: all, $duration: .3s, $ease: linear){
+  -webkit-transition: $property $duration $ease;
+  -moz-transition: $property $duration $ease;
+  -o-transition: $property $duration $ease;
+  transition: $property $duration $ease;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto-Regular", sans-serif;
+  overflow: hidden;
+}
+
+.inner {
+  width: 100%;
+  height: 100%;
+
+  .header {
+    width: 100%;
+    height: 50px;
+    background-color: #fff;
+    color: #333;
+    box-shadow: 1px 1px 2px #999;
+    display: none;
+    position: fixed;
+    z-index: 999;
+
+    .header_inner {
+      text-align: center;
+
+      ul:not(.lang_down) {
+        width: 80%;
+        height: 50px;
+        list-style: none;
+        margin: 0 auto;
+
+        li {
+          display: inline-block;
+          float: right;
+          text-align: center;
+          margin: 10px 25px;
+          cursor: pointer;
+
+          @media screen and (max-width: $break-small) {
+            margin: 10px;
+          }
+
+          span.flag_en {
+            width: 13px;
+            height: 13px;
+            display: inline-block;
+            background: url("../images/en.png") center left no-repeat;
+            background-size: contain;
+            border-radius: 50%;
+            margin: 1px 0 0 3px;
+            box-shadow: 1px 1px 1px #999;
+          }
+
+          span.flag_nl {
+            width: 13px;
+            height: 13px;
+            display: inline-block;
+            background: url("../images/nl.png") center left no-repeat;
+            background-size: contain;
+            border-radius: 50%;
+            margin: 1px 0 0 3px;
+            box-shadow: 1px 1px 1px #999;
+          }
+        }
+
+        li:hover {
+          text-shadow: 2px 2px 3px #999;
+          @include shift(text-shadow);
+        }
+
+        li:first-child {
+          float: left;
+        }
+
+        li#lang{
+          ul.lang_down {
+            display: none;
+            position: absolute;
+            margin-left: -30px;
+            background-color: #fff;
+
+            @media screen and (max-width: $break-small) {
+              margin-left: -25px;
+            }
+
+            li {
+              display: block;
+              float: none;
+              text-align: center;
+              padding: 10px 15px;
+              border-bottom: 1px solid #eee;
+              margin: 0;
+
+              @media screen and (max-width: $break-small) {
+                padding: 10px;
+              }
+            }
+            li.selected {
+              background-color: #ffffd2;
+            }
+            li i {
+              visibility: hidden;
+              margin-right: 4px;
+              font-size: 13px;
+
+            }
+            li.selected i {
+              visibility: visible;
+            }
+            li:hover {
+              background-color: #ffc800;
+              color: #fff;
+              @include shift(background-color);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .container {
+    .container_main {
+      color: #fff;
+      text-align: center;
+      height: 100vh;
+
+      .container_main_bg {
+        background: url("../images/background_img.jpg") no-repeat;
+        background-size: cover;
+        z-index: -1;
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+
+        .container_main_star {
+          background: url("../images/start.png") no-repeat;
+          background-size: cover;
+          width: 100%;
+          height: 100vh;
+          position: absolute;
+        }
+        .container_main_tree {
+          background: url("../images/right_side.png") no-repeat;
+          background-size: cover;
+          width: 100%;
+          height: 100vh;
+          position: absolute;
+        }
+
+      }
+
+      .main_txt {
+        position: relative;
+        top: 30%;
+
+        p {
+          cursor: default;
+        }
+
+        p#name {
+          font-size: 4rem;
+          line-height: 4rem;
+          margin: 0;
+        }
+        p#occupation {
+          font-size: 1.3rem;
+          line-height: 1.5rem;
+          margin: 30px auto 60px;
+          border-top: 1px solid #fff;
+          width: 15rem;
+        }
+        .down_btn {
+          position: relative;
+          height: 6vh;
+          cursor: pointer;
+
+          i {
+            font-style: normal;
+            font-size: 1.3rem;
+            position: relative;
+            @include animation(0s, 2.5s, fadein, infinite);
+          }
+        }
+
+      }
+    }
+    .container_about {
+      height: 100vh;
+    }
+  }
+}
